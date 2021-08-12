@@ -28,6 +28,7 @@ specifiers:
   vue: ^3.1.5
   vue-class-component: ^8.0.0-rc.1
   vue-cli-plugin-axios: ^0.0.4
+  vue-cli-plugin-cordova: ^2.4.1
   vue-cli-plugin-tailwind: ^2.0.6
   vue-router: ^4.0.10
   vuex: ^4.0.2
@@ -64,6 +65,7 @@ devDependencies:
   sass-loader: 8.0.2_sass@1.37.0
   typescript: 4.1.6
   vue-cli-plugin-axios: 0.0.4
+  vue-cli-plugin-cordova: 2.4.1
   vue-cli-plugin-tailwind: 2.0.6
 
 packages:
@@ -2496,6 +2498,10 @@ packages:
     resolution: {integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==}
     dev: true
 
+  /async/1.5.2:
+    resolution: {integrity: sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=}
+    dev: true
+
   /async/2.6.3:
     resolution: {integrity: sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==}
     dependencies:
@@ -3452,6 +3458,14 @@ packages:
       ripemd160: 2.0.2
       safe-buffer: 5.2.1
       sha.js: 2.4.11
+    dev: true
+
+  /cross-env/5.2.1:
+    resolution: {integrity: sha512-1yHhtcfAd1r4nwQgknowuUNfIT9E8dOMMspC36g45dN+iD1blloi7xp8X/xAIDnjHWyt1uQ8PHk2fkNaym7soQ==}
+    engines: {node: '>=4.0'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 6.0.5
     dev: true
 
   /cross-spawn/5.1.0:
@@ -5063,6 +5077,13 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /hasbin/1.2.3:
+    resolution: {integrity: sha1-eMWSaJPIAhXCtWiuH9P8q3omlrA=}
+    engines: {node: '>=0.10'}
+    dependencies:
+      async: 1.5.2
+    dev: true
+
   /hash-base/3.1.0:
     resolution: {integrity: sha512-1nmYp/rhMDiE7AYkDw+lLwlAzz0AntGIe51F3RfFfEqyQ3feY2eI/NcwC6umIQVOASPMsWJLJScWKSSvzL9IVA==}
     engines: {node: '>=4'}
@@ -5160,6 +5181,14 @@ packages:
   /html-tags/3.1.0:
     resolution: {integrity: sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==}
     engines: {node: '>=8'}
+
+  /html-webpack-include-assets-plugin/1.0.10:
+    resolution: {integrity: sha512-F+VqD4Vt5zxqzYikT7+B/oZOHCi3xvBy5NaE8AtZGRB840mZ4+cti2p5z0PwXTs3pQShO3MEuhG+vakk0XtTig==}
+    dependencies:
+      glob: 7.1.7
+      minimatch: 3.0.4
+      slash: 2.0.0
+    dev: true
 
   /html-webpack-plugin/3.2.0_webpack@4.46.0:
     resolution: {integrity: sha1-sBq71yOsqqeze2r0SS69oD2d03s=}
@@ -9176,6 +9205,18 @@ packages:
 
   /vue-cli-plugin-axios/0.0.4:
     resolution: {integrity: sha512-p2b/fvPJuPBnvU8027PAAuU5DiOzUn2lku8XLG/f6c8FU0N+/MXWZAlOuHhqd9e7+KIZitwe/c8qlmv7TglbTg==}
+    dev: true
+
+  /vue-cli-plugin-cordova/2.4.1:
+    resolution: {integrity: sha512-IxF+I5jNa7HISydNuA84CWEg4fgTwsR7u0yWooWLdmxlFkm3qkMBT8qIaRCVk7uE2o+fociEQbKzUbiFQKhkAA==}
+    dependencies:
+      '@vue/cli-shared-utils': 4.5.13
+      address: 1.1.2
+      cross-env: 5.2.1
+      cross-spawn: 6.0.5
+      hasbin: 1.2.3
+      html-webpack-include-assets-plugin: 1.0.10
+      portfinder: 1.0.28
     dev: true
 
   /vue-cli-plugin-tailwind/2.0.6:
