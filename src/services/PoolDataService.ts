@@ -1,18 +1,15 @@
 import http from "../http-common";
 
-/* export default {
-  getcalendar() {
+/* eslint-disable */
+class PoolDataService {
+  getCalendar(): Promise<any> {
     return http().get("calendar");
-  },
-}; */
-
-export default (route: string) => {
-  switch (route) {
-    case "getCalendar": {
-      return http({}).get("calendar");
-    }
-    default: {
-      return null;
-    }
   }
-};
+
+  /* get(id: any): Promise<any> {
+    return http().get(`/tutorials/${id}`);
+  } */
+}
+
+export default new PoolDataService();
+
