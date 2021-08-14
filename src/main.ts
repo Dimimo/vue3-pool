@@ -13,6 +13,7 @@ import {
   faExternalLinkSquareAlt,
   faMapMarkedAlt,
   faMapMarkerAlt,
+  faQuestionCircle,
   faPhoneSquareAlt,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +27,7 @@ library.add(
   faExternalLinkSquareAlt,
   faMapMarkedAlt,
   faMapMarkerAlt,
+  faQuestionCircle,
   faPhoneSquareAlt,
   faUserSecret,
 );
