@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
-import PoolDataService from '@/services/PoolDataService'
+import PoolDataService from "@/services/PoolDataService";
+import ResponseData from "@/types/ResponseData";
 
 export default createStore({
   state: () => ({
@@ -12,12 +13,12 @@ export default createStore({
   actions: {
     getCalendar({ commit }) {
       return new Promise(() => {
-      PoolDataService("getCalendar")
-        .then((response: any) => {
-          console.log(response.data.data);
+      PoolDataService.getCalendar() 
+        .then((response: ResponseData) => {
+          // console.log(response.data.data);
           commit("updateDates", response.data.data);
         })
-        .catch((e) => {
+        .catch((e: string) => {
           console.log(e);
         });
     });
