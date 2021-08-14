@@ -1,9 +1,11 @@
 <template>
-  <div id="nav">
+  <div class="container mx-auto" id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/calendar">Calendar</router-link>
   </div>
-  <router-view/>
+  <div class="container mx-auto" id="main">
+    <router-view />
+  </div>
 </template>
 
 <style lang="scss">
