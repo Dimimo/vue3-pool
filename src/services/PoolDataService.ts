@@ -6,10 +6,13 @@ class PoolDataService {
     return http().get("calendar");
   }
 
+  getResults(): Promise<any> {
+    return http().get("results");
+  }
+
   /* get(id: any): Promise<any> {
     return http().get(`/tutorials/${id}`);
   } */
 }
 
 export default new PoolDataService();
-
