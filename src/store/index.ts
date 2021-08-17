@@ -7,10 +7,17 @@ export default createStore({
     isAdmin: false,
     loading: false,
     season: "2019/07",
+    ranking: 1,
     events: [],
     dates: [],
     results: [],
   }),
+  getters: {
+    getRank (state) {
+      state.ranking++;
+      return state.ranking;
+    }
+  },
   actions: {
     getCalendar({ commit }) {
       return new Promise(() => {
@@ -29,7 +36,7 @@ export default createStore({
       return new Promise(() => {
         PoolDataService.getResults()
           .then((response: ResponseData) => {
-            console.log(response.data.data);
+            // console.log(response.data.data);
             commit("updateResults", response.data.data);
           })
           .catch((e: string) => {
