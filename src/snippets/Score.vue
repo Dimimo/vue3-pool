@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="score === 0 && score2 === 0"
-    class="flex items-center justify-center flex-none w-6 h-6 text-blue-500 rounded-full "
-    alt="Not in"
+    class="flex items-center justify-center flex-none w-6 h-6 text-gray-400 rounded-full "
+    title="Not in"
   >
     <font-awesome-icon :icon="['fas', 'question-circle']" size="lg" />
   </div>
