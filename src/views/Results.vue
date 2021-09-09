@@ -47,7 +47,7 @@
       </thead>
       <tbody v-for="result in results" :key="result.team.id">
         <tr class="border-b-2 hover:bg-gray-100">
-          <td class=""></td>
+          <td class="">{{ result.rank }}</td>
           <td class="py-2 font-bold text-left">{{ result.team.name }}</td>
           <td class="text-left">{{ result.played.name }}</td>
           <td class="" :class="result.last_game_won ? 'font-bold' : ''">{{ result.last_result }}</td>
@@ -76,14 +76,12 @@ export default {
   },
   computed: mapState({
     results: (state) => state.results,
-    ranking: (state) => state.ranking++,
     loading: (state) => state.loading,
   }),
   // eslint-disable-next-line
   mounted() {
     const store = useStore();
     store.dispatch("getResults");
-    store.state.rank = 1;
   },
 };
 </script>

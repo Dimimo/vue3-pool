@@ -7,17 +7,10 @@ export default createStore({
     isAdmin: false,
     loading: false,
     season: "2019/07",
-    ranking: 1,
     events: [],
     dates: [],
     results: [],
   }),
-  getters: {
-    getRank (state) {
-      state.ranking++;
-      return state.ranking;
-    }
-  },
   actions: {
     getCalendar({ commit }) {
       return new Promise(() => {
