@@ -8,12 +8,12 @@ import axios, { AxiosRequestConfig, AxiosInstance } from "axios";
 }); */
 
 export default (options: AxiosRequestConfig = {}): AxiosInstance => {
-  options.baseURL = "https://parrot.app/api/pool/";
+  options.baseURL = "https://www.puertoparrot.com/api/pool/";
   options.method = 'GET';
   options.headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
-    "season": "2019/07",
+    "season": "2021/07",
   };
 
   /* if (requiresAuth) {
