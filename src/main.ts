@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 //import './plugins/axios'
 import "./assets/tailwind.css";
+import { defineCustomElements as initSkeleton } from "skeleton-webcomponent-loader/loader";
+initSkeleton();
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAddressCard,
