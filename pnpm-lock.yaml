@@ -23,6 +23,7 @@ specifiers:
   postcss: ^7.0.36
   sass: ^1.37.0
   sass-loader: ^8.0.2
+  skeleton-webcomponent-loader: ^2.0.0
   tailwindcss: npm:@tailwindcss/postcss7-compat@^2.2.7
   typescript: ~4.1.6
   vue: ^3.1.5
@@ -41,6 +42,7 @@ dependencies:
   autoprefixer: 9.8.6
   core-js: 3.16.0
   postcss: 7.0.36
+  skeleton-webcomponent-loader: 2.0.0
   tailwindcss: /@tailwindcss/postcss7-compat/2.2.7
   vue: 3.1.5
   vue-class-component: 8.0.0-rc.1_vue@3.1.5
@@ -1340,6 +1342,20 @@ packages:
   /@soda/get-current-script/1.0.2:
     resolution: {integrity: sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==}
     dev: true
+
+  /@stencil/core/2.8.0:
+    resolution: {integrity: sha512-WazFGUMnbumg8ePNvej8cIOEcxvuZ0ugKQkkE1xFbDYcl7DgJd62MiG+bIqCcQlIdLEfhjAdoixxlFdJgrgjyA==}
+    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
+    hasBin: true
+    dev: false
+
+  /@stencil/sass/1.4.1_@stencil+core@2.8.0:
+    resolution: {integrity: sha512-aFKoqtxZ/8BRbvNFiWRycGiqvMI22Ifn5qsKfq0U23j43XD81jT6d7K0WQd55ejNpoSpdxJcbOuFgQy3mXizfA==}
+    peerDependencies:
+      '@stencil/core': '>=1.0.2'
+    dependencies:
+      '@stencil/core': 2.8.0
+    dev: false
 
   /@tailwindcss/postcss7-compat/2.2.7:
     resolution: {integrity: sha512-1QkWUEeLV1AoNipMCE6IlL7XYScGb+DAzaXy35ooMDvl0G8kCMHBNqGxyVAnTcK8gyJNUzkKXExkUnbjAndd/g==}
@@ -8235,6 +8251,14 @@ packages:
     resolution: {integrity: sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=}
     dependencies:
       is-arrayish: 0.3.2
+
+  /skeleton-webcomponent-loader/2.0.0:
+    resolution: {integrity: sha512-4v5MUyMxZZeI/70DId5wQw9m9Yr00RvlY2sC+WdXKA9e9v8TLbkQ+J9sepHK7BHZMmTQToj7nMRszPJRJGoXZQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@stencil/core': 2.8.0
+      '@stencil/sass': 1.4.1_@stencil+core@2.8.0
+    dev: false
 
   /slash/1.0.0:
     resolution: {integrity: sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=}
