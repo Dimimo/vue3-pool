@@ -23,7 +23,9 @@
                   class="flex-grow truncate"
                   :class="event.score1 > 7 ? isBold : ''"
                 >
-                  {{ event.team_1.name }}
+                  <router-link :to="`/team/` + event.team_1.id">
+                    {{ event.team_1.name }}
+                  </router-link>
                 </div>
                 <score :score="event.score1" :score2="event.score2"></score>
               </div>
@@ -37,7 +39,9 @@
                   class="flex-grow truncate"
                   :class="event.score2 > 7 ? isBold : ''"
                 >
-                  {{ event.team_2.name }}
+                  <router-link :to="`/team/` + event.team_2.id">
+                    {{ event.team_2.name }}
+                  </router-link>
                 </div>
               </div>
             </div>
