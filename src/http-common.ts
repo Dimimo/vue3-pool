@@ -13,7 +13,7 @@ export default (options: AxiosRequestConfig = {}): AxiosInstance => {
   options.headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
-    "season": "2021/07",
+    "season": "2021/08",
   };
 
   /* if (requiresAuth) {
