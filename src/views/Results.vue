@@ -45,7 +45,7 @@
             </router-link>
           </td>
           <td class="" :class="result.last_game_won ? 'font-bold' : ''">
-            {{ result.last_result }}
+            <span class="" :class="result.last_result === 'not in' ? 'text-yellow-700' : ''">{{ result.last_result }}</span>
           </td>
           <td class="">{{ result.won }}</td>
           <td class="">{{ result.lost }}</td>
