@@ -14,6 +14,10 @@ class PoolDataService {
     return http().get("team/" + id);
   }
 
+  getTeamList(): Promise<any> {
+    return http().get("team_list");
+  }
+
   /* get(id: any): Promise<any> {
     return http().get(`/tutorials/${id}`);
   } */
