@@ -1,11 +1,63 @@
 <template>
   <div id="team">
-    <div class="mt-2 mb-6 text-3xl text-purple-900">
+    <div class="mt-2 mb-4 text-3xl text-purple-900">
       Team calendar of
-      <span v-if="loading">
-        .....
-      </span>
+      <span v-if="loading"> ..... </span>
       <span v-else>{{ team.name }}</span>
+    </div>
+    <div class="my-2 mb-4" v-if="venue">
+      <div>
+        <span class="font-bold">Address:</span>
+        <span class="ml-2">{{ venue.address }}</span>
+      </div>
+      <div>
+        <div>
+          <span class="font-bold">Contact:</span>
+          <span class="mx-2">{{ venue.owner }}</span>
+          <span>
+            <font-awesome-icon
+              class="text-gray-800"
+              :icon="['fas', 'phone-square-alt']"
+              size="md"
+            />
+          </span>
+          <span class="mx-2">{{ venue.phone }}</span>
+        </div>
+      </div>
+    </div>
+    <div v-if="players.length > 0">
+      <div class="mx-auto mt-2 mb-6 border-2 border-green-700">
+        <div class="my-2 mb-2 text-2xl font-bold text-green-700">Players</div>
+        <div class="m-4" v-for="player in players" :key="player.id">
+          <div class="mb-2">
+            <span v-if="player.captain">
+              <font-awesome-icon
+                class="text-yellow-600"
+                :icon="['fas', 'user-tie']"
+                size="lg"
+                title="Captain"
+              />
+            </span>
+            <span v-else>
+              <font-awesome-icon
+                class="text-gray-800"
+                :icon="['fas', 'user']"
+                size="lg"
+                title="player"
+              />
+            </span>
+            <span class="mx-2">{{ player.name }}</span>
+            <span>
+              <font-awesome-icon
+                class="text-gray-800"
+                :icon="['fas', 'phone-square-alt']"
+                size="md"
+              />
+            </span>
+            <span class="ml-2">{{ player.phone }}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <table class="w-full table-fixed">
       <thead>
@@ -66,14 +118,19 @@ export default {
     score: Score,
   },
   computed: mapState({
+    venue: (state) => state.venue,
     team: (state) => state.team,
+    players: (state) => state.players,
     calendar: (state) => state.calendar,
     loading: (state) => state.loading,
   }),
   methods: {
     // eslint-disable-next-line
     getData() {
-      this.$store.dispatch("getTeam", this.$route.params.id);
+      this.$store.dispatch("startLoading", true);
+      if (this.$route.params.id) {
+        this.$store.dispatch("getTeam", this.$route.params.id);
+      }
     },
   },
   watch: {
@@ -88,6 +145,6 @@ export default {
 
 <style scoped>
 .title-skeleton {
-       --skeleton-margin-bottom: 0px
-     }
+  --skeleton-margin-bottom: 0px;
+}
 </style>
