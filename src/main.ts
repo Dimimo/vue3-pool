@@ -24,6 +24,7 @@ import {
   faThumbsUp,
   faThumbsDown,
   faUserSecret,
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -43,7 +44,8 @@ library.add(
   faPlusSquare,
   faThumbsUp,
   faThumbsDown,
-  faUserSecret
+  faUserSecret,
+  faUserTie,
 );
 
 const app = createApp(App)
