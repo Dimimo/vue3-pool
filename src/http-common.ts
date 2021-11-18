@@ -1,5 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from "axios";
 
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $config: Record<string, unknown>;
+  }
+}
+
 /* export default axios.create({
   baseURL: "https://parrot.app/api/v1/",
   headers: {
@@ -13,7 +19,7 @@ export default (options: AxiosRequestConfig = {}): AxiosInstance => {
   options.headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
-    "season": "2021/08",
+    "season": localStorage.getItem('season'),
   };
 
   /* if (requiresAuth) {

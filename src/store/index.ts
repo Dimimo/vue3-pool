@@ -7,7 +7,7 @@ export default createStore({
   state: () => ({
     isAdmin: false,
     loading: true,
-    season: "2019/07",
+    season: "2021/11",
     events: [],
     dates: [],
     results: [],
@@ -17,7 +17,14 @@ export default createStore({
     calendar: [],
     team_list: [],
   }),
-  
+
+  getters: {
+    changeSeason(state) {
+      localStorage.setItem("season", state.season);
+      return state.season;
+    },
+  },
+
   actions: {
     startLoading({ commit }) {
       commit("updateLoading", true);
