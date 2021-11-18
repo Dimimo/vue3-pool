@@ -87,7 +87,7 @@
               event.team_2.id === team.id ? 'text-green-600 font-bold' : ''
             "
           >
-            <router-link :to="`/team/` + event.team_1.id" replace>
+            <router-link :to="`/team/` + event.team_2.id" force="true">
               {{ event.team_2.name }}
             </router-link>
           </td>
@@ -96,9 +96,9 @@
               class="flex py-1"
               v-if="event.score1 != null && event.score2 != null"
             >
-              <score :score="event.score1" :score2="event.score2"></score>
+              <score :score1="event.score1" :score2="event.score2"></score>
               <span class="px-2">/</span>
-              <score :score="event.score2" :score2="event.score1"></score>
+              <score :score1="event.score2" :score2="event.score1"></score>
             </span>
             <span class="px-4" v-else>------</span>
           </td>
@@ -117,13 +117,7 @@ export default {
   components: {
     score: Score,
   },
-  computed: mapState({
-    venue: (state) => state.venue,
-    team: (state) => state.team,
-    players: (state) => state.players,
-    calendar: (state) => state.calendar,
-    loading: (state) => state.loading,
-  }),
+  computed: mapState(["venue", "team", "players", "calendar", "loading"]),
   methods: {
     // eslint-disable-next-line
     getData() {

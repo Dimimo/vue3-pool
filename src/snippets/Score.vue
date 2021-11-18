@@ -1,23 +1,23 @@
 <template>
   <div
-    v-if="score === 0 && score2 === 0"
+    v-if="score1 === 0 && score2 === 0"
     class="flex items-center justify-center flex-none w-6 h-6 text-gray-400 rounded-full "
     title="Not in"
   >
     <font-awesome-icon :icon="['fas', 'question-circle']" size="lg" />
   </div>
   <div
-    v-else-if="score !== null"
+    v-else-if="score1 !== null"
     class="flex items-center justify-center flex-none w-6 h-6 rounded-full"
-    :class="score > 7 ? winColour : loseColour"
+    :class="score1 > 7 ? winColour : loseColour"
   >
-    {{ score }}
+    {{ score1 }}
   </div>
   <div
     v-else
     class="flex items-center justify-center flex-none w-6 h-6 rounded-full"
   >
-    {{ score }}
+    {{ score1 }}
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
       loseColour: "bg-red-100",
     };
   },
-  props: ["score", "score2"],
+  props: ["score1", "score2"],
 };
 </script>
 

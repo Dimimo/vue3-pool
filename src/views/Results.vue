@@ -45,7 +45,11 @@
             </router-link>
           </td>
           <td class="" :class="result.last_game_won ? 'font-bold' : ''">
-            <span class="" :class="result.last_result === 'not in' ? 'text-yellow-700' : ''">{{ result.last_result }}</span>
+            <span
+              class=""
+              :class="result.last_result === 'not in' ? 'text-yellow-700' : ''"
+              >{{ result.last_result }}</span
+            >
           </td>
           <td class="">{{ result.won }}</td>
           <td class="">{{ result.lost }}</td>
@@ -66,19 +70,16 @@ import { useStore, mapState } from "vuex";
 
 export default {
   name: "results",
-  // eslint-disable-next-line
-  data() {
-    return {
-      //rank: 1,
-    };
+  computed: {
+    ...mapState([
+      'results',
+      'loading',
+    ]),
   },
-  computed: mapState({
-    results: (state) => state.results,
-    loading: (state) => state.loading,
-  }),
   // eslint-disable-next-line
   mounted() {
     const store = useStore();
+    console.log(this.season);
     store.dispatch("getResults");
   },
 };
