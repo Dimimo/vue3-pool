@@ -1,14 +1,33 @@
 <template>
-  <div class="container mx-auto" id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/calendar">Calendar</router-link> | 
-    <router-link to="/results">Results</router-link> |
-    <router-link to="/team_list">Participating Teams</router-link>
-  </div>
-  <div class="container mx-auto" id="main">
-    <router-view />
+  <div class="container mx-auto">
+    <div>
+      <season-dropdown />
+    </div>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/calendar">Calendar</router-link> |
+      <router-link to="/results">Results</router-link> |
+      <router-link to="/team_list">Participating Teams</router-link>
+    </div>
+    <div class="container mx-auto" id="main">
+      <router-view />
+    </div>
   </div>
 </template>
+
+<script>
+import SeasonDropdown from "./components/SeasonDropdown.vue";
+export default {
+  name: "main-app",
+  // eslint-disable-next-line
+  data() {
+    return [];
+  },
+  components: {
+    SeasonDropdown,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
