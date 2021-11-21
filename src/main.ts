@@ -4,7 +4,9 @@ import router from './router'
 import store from './store'
 //import { useStore } from "vuex";
 //import './plugins/axios'
+import "vuestic-ui/dist/vuestic-ui.css";
 import "./assets/tailwind.css";
+import { VaChip, VaButton } from "vuestic-ui";
 import { defineCustomElements as initSkeleton } from "skeleton-webcomponent-loader/loader";
 initSkeleton();
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -52,6 +54,8 @@ library.add(
 const app = createApp(App)
   .use(store)
   .use(router)
+  .component("va-chip", VaChip)
+  .component("va-button", VaButton)
   .component("font-awesome-icon", FontAwesomeIcon);
 //app.config.globalProperties.$_ = Lodash;
 app.config.globalProperties.apiUrl = "https://parrot.app/api/v1/";

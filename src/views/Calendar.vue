@@ -37,7 +37,7 @@
               <div
                 class="px-1 py-3 text-right border-b border-gray-300 border-solid "
               >
-                <div class="flex h7">
+                <div class="flex justify-between h7">
                   <score :score1="event.score2" :score2="event.score1"></score>
                   <div
                     class="flex-grow truncate"
