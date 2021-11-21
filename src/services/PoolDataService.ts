@@ -1,3 +1,4 @@
+//import axios from "axios";
 import http from "../http-common";
 
 /* eslint-disable */
@@ -18,8 +19,21 @@ class PoolDataService {
     return http().get("team_list");
   }
 
-  /* get(id: any): Promise<any> {
-    return http().get(`/tutorials/${id}`);
+  getSeasons(): Promise<any> {
+    return http().get("get_seasons");
+  }
+
+  /* postSeason(season: string): Promise<any> {
+    axios
+      .post("http://parrot.app/api/pool/change_season", { season })
+      .then(function (response) {
+        console.log(response);
+    return response.data.season;
+      })
+      .catch(function (error) {
+        console.log(error);
+        return error.message;
+      });
   } */
 }
 
