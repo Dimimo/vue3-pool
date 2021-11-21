@@ -121,7 +121,6 @@ export default {
   methods: {
     // eslint-disable-next-line
     getData() {
-      this.$store.dispatch("startLoading", true);
       if (this.$route.params.id) {
         this.$store.dispatch("getTeam", this.$route.params.id);
       }
