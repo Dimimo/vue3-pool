@@ -1,13 +1,7 @@
 <template>
   <div class="container mx-auto">
     <div>
-      <season-dropdown />
-    </div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/calendar">Calendar</router-link> |
-      <router-link to="/results">Results</router-link> |
-      <router-link to="/team_list">Participating Teams</router-link>
+      <responsive-navbar />
     </div>
     <div class="container mx-auto" id="main">
       <router-view />
@@ -16,7 +10,7 @@
 </template>
 
 <script>
-import SeasonDropdown from "./components/SeasonDropdown.vue";
+import ResponsiveNavbar from "./components/ResponsiveNavbar.vue";
 export default {
   name: "main-app",
   // eslint-disable-next-line
@@ -24,7 +18,7 @@ export default {
     return [];
   },
   components: {
-    SeasonDropdown,
+    ResponsiveNavbar,
   },
 };
 </script>
