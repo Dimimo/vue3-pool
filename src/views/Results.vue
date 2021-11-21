@@ -79,7 +79,6 @@ export default {
   // eslint-disable-next-line
   mounted() {
     const store = useStore();
-    console.log(this.season);
     store.dispatch("getResults");
   },
 };
