@@ -8,8 +8,7 @@ export default {
     // eslint-disable-next-line
     changeSeason() {
       this.$store.dispatch("postSeason", this.season).then(() => {
-          console.log(this.$router.currentRoute.value.fullPath);
-        this.$router.back();
+        this.$router.replace("/results");
       });
     },
   },

@@ -2,7 +2,9 @@
   <div id="team">
     <div class="mt-2 mb-4 text-3xl text-purple-900">
       Team calendar of
-      <span v-if="loading"> ..... </span>
+      <span v-if="loading">
+        ....
+      </span>
       <span v-else>{{ team.name }}</span>
     </div>
     <div class="my-2 mb-4" v-if="venue">

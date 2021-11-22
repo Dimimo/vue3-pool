@@ -1,6 +1,6 @@
 <template>
   <div id="calendar">
-    <div v-if="loading">... loading the calendar ...</div>
+    <div v-if="loading">... loading ...</div>
     <div v-else>
       <div class="grid m-2 mb-10 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
         <div v-for="date in dates" :key="date.id" class="mb-8">
