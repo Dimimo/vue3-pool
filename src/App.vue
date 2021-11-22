@@ -13,10 +13,6 @@
 import ResponsiveNavbar from "./components/ResponsiveNavbar.vue";
 export default {
   name: "main-app",
-  // eslint-disable-next-line
-  data() {
-    return [];
-  },
   components: {
     ResponsiveNavbar,
   },
