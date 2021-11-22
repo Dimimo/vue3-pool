@@ -5,10 +5,14 @@
   >
     <div class="p-4 text-center">
       <h2 class="h-2 mb-6 text-3xl font-bold text-white">
-        {{ date.date }}
+        <router-link :to="`/day_events/` + date.id">
+          {{ date.date }}
+        </router-link>
       </h2>
       <div v-if="date.title" class="px-6 mt-10 text-xl text-yellow-300">
-        {{ date.title }}
+        <router-link :to="`/day_events/` + date.id">
+          {{ date.date }}
+        </router-link>
       </div>
     </div>
   </div>
