@@ -29,13 +29,15 @@
         class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
       >
         <li class="text-gray-100 hover:text-indigo-400">
-          <router-link to="/results">Results</router-link>
+          <router-link to="/results" @click="show = false">Results</router-link>
         </li>
         <li class="text-gray-100 hover:text-indigo-400">
-          <router-link to="/calendar">Calendar</router-link>
+          <router-link to="/calendar" @click="show = false"
+            >Calendar</router-link
+          >
         </li>
         <li class="text-gray-100 hover:text-indigo-400">
-          <router-link to="/team_list">Teams</router-link>
+          <router-link to="/team_list" @click="show = false">Teams</router-link>
         </li>
         <li>
           <div class="relative">
@@ -105,19 +107,11 @@ export default {
   // eslint-disable-next-line
   mounted() {
     this.show = false;
+    const store = useStore();
+    store.getters.changeSeason();
     if (this.seasons.length === 0) {
-      const store = useStore();
       store.dispatch("getSeasons");
     }
-
-    /* axios
-      .post("http://parrot.app/api/pool/change_season", { season: "2011/10" })
-      .then(function (response) {
-        console.log(response.data.season);
-      })
-      .catch(function (error) {
-        console.log(error);
-      }); */
   },
 };
 </script>
