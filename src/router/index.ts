@@ -37,7 +37,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/post_season/:year/:month",
     name: "post_season",
     component: () =>
-      import(/* webpackChunkName: "team" */ "../views/ChangeSeason.vue"),
+      import(/* webpackChunkName: "post_season" */ "../views/ChangeSeason.vue"),
+  },
+  {
+    path: "/day_events/:date_id",
+    name: "day_events",
+    component: () =>
+      import(/* webpackChunkName: "day_events" */ "../views/DayEvents.vue"),
   },
 ];
 
