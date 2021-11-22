@@ -6,29 +6,46 @@ import axios from "axios";
 
 export default createStore({
   state: () => ({
+    calendar: [],
+    dates: [],
+    day_events: [],
     isAdmin: false,
     loading: true,
+    players: [],
+    results: [],
     season: "2021/11",
     seasons: [],
-    events: [],
-    dates: [],
-    results: [],
-    venue: [],
     team: [],
-    players: [],
-    calendar: [],
     team_list: [],
+    venue: [],
   }),
 
   getters: {
-    changeSeason(state) {
-      if (localStorage.getItem("season")) {
-        state.season = localStorage.getItem("season");
-      } else {
-        localStorage.setItem("season", state.season);
-      }
-
+    getSeason: (state) => () => {
       return state.season;
+    },
+    changeSeason: (state) => () => {
+      // eslint-disable-next-line
+      return new Promise((resolve: any) => {
+        if (localStorage.getItem("season")) {
+          state.season = localStorage.getItem("season");
+        } else {
+          PoolDataService.getSeasons()
+            .then((response: ResponseData) => {
+              state.season = response.data.data[0].season;
+              localStorage.setItem("season", state.season);
+              resolve();
+              return;
+            })
+            .catch((e: string) => {
+              console.log(e);
+            });
+        }
+      });
+    },
+
+    getDate: (state) => (date_id: number) => {
+      state.day_events = state.dates.find((date) => date.id === date_id);
     },
   },
 
@@ -61,12 +78,17 @@ export default createStore({
         commit("updateLoading", true);
         commit("updateSeason", payload);
         commit("updateResults", []);
+        commit("updateVenue", []);
+        commit("updateTeam", []);
+        commit("updatePlayers", []);
+        commit("updateCalendar", []);
         axios
           .post("http://www.puertoparrot.com/api/pool/change_season", {
             season: payload,
           })
           .then(function (response) {
             commit("updateSeason", response.data.season);
+            commit("updateLoading", false);
             resolve();
           })
           .catch(function (e: string) {
@@ -107,6 +129,19 @@ export default createStore({
       });
     },
 
+    getTeamList({ commit }) {
+      commit("updateLoading", true);
+      commit("updateTeamList", []);
+      // eslint-disable-next-line
+      return new Promise((resolve: any) => {
+        PoolDataService.getTeamList().then((response: ResponseData) => {
+          commit("updateTeamList", response.data.data);
+          commit("updateLoading", false);
+          resolve();
+        });
+      });
+    },
+
     getTeam({ commit }, id = null) {
       commit("updateLoading", true);
       commit("updateVenue", []);
@@ -120,19 +155,6 @@ export default createStore({
           commit("updateTeam", response.data.data.team);
           commit("updatePlayers", response.data.data.team.players.data);
           commit("updateCalendar", response.data.data.calendar.data);
-          commit("updateLoading", false);
-          resolve();
-        });
-      });
-    },
-
-    getTeamList({ commit }) {
-      commit("updateLoading", true);
-      commit("updateTeamList", []);
-      // eslint-disable-next-line
-      return new Promise((resolve: any) => {
-        PoolDataService.getTeamList().then((response: ResponseData) => {
-          commit("updateTeamList", response.data.data);
           commit("updateLoading", false);
           resolve();
         });
