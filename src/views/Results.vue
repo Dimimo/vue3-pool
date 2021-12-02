@@ -65,10 +65,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { useStore, mapState } from "vuex";
 
-export default {
+export default defineComponent ({
   name: "results",
   computed: {
     ...mapState([
@@ -76,12 +77,11 @@ export default {
       'loading',
     ]),
   },
-  // eslint-disable-next-line
   mounted() {
     const store = useStore();
     store.dispatch("getResults");
   },
-};
+});
 </script>
 
 <style>

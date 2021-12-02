@@ -7,20 +7,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { mapState, useStore } from "vuex";
+// import { Component } from 'vue-class-component';
 
-export default {
+export default defineComponent ({
   name: "DayEvents",
   computed: {
     ...mapState(["day_events", "loading", "getDate"]),
   },
-  // eslint-disable-next-line
   mounted() {
     const store = useStore();
     store.dispatch("getCalendar").then(() => {
       store.getters.getDate(Number(this.$route.params.date_id));
     });
   },
-};
+});
 </script>

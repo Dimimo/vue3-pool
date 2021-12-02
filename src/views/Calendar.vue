@@ -57,14 +57,14 @@
   </div>
 </template>
 
-<script>
-import CalendarTitle from "@/snippets/CalendarTitle";
-import Score from "@/snippets/Score";
+<script lang="ts">
+import { defineComponent } from "vue";
 import { useStore, mapState } from "vuex";
+import Score from "@/snippets/Score.vue";
+import CalendarTitle from "@/snippets/CalendarTitle.vue";
 
-export default {
+export default defineComponent ({
   name: "calendar-overview",
-  // eslint-disable-next-line
   data() {
     return {
       isBold: "font-semibold",
@@ -74,14 +74,12 @@ export default {
     "calendar-title": CalendarTitle,
     score: Score,
   },
-  computed: mapState(["dates", "loading"]),
-  // eslint-disable-next-line
+  computed: {
+    ...mapState(["dates", "loading"])
+  },
   mounted() {
     const store = useStore();
     store.dispatch("getCalendar");
   },
-};
+});
 </script>
-
-<style>
-</style>

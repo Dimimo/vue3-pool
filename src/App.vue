@@ -9,14 +9,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import ResponsiveNavbar from "./components/ResponsiveNavbar.vue";
-export default {
+
+export default defineComponent ({
   name: "main-app",
   components: {
     ResponsiveNavbar,
   },
-};
+});
 </script>
 
 <style lang="scss">

@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="" v-for="team in teams" :key="team.id">
+        <tr class="" v-for="team in team_list" :key="team.id">
           <td class="py-2 text-left">
             <router-link :to="`/team/` + team.id">
               {{ team.name }}
@@ -29,32 +29,31 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { useStore, mapState } from "vuex";
-export default {
+import Team from "@/types/Team";
+import Player from "@/types/Player";
+
+export default defineComponent ({
   name: "TeamList",
-  computed: mapState({
-    teams: (state) => state.team_list,
-    loading: (state) => state.loading,
-  }),
-  // eslint-disable-next-line
+  computed: { ...mapState(["team_list", "loading"]
+  )},
   methods: {
-      // eslint-disable-next-line
-      captain(team) {
+      captain(team: Team) {
           if (team.players.data.length > 0)
           { 
-              const captain = team.players.data.find(t => t.captain === true);
+              const captain: Player = team.players.data.find(t => t.captain === true);
               return captain.name;
           }
           else {
             return team.venue.owner;
           }
       },
-      // eslint-disable-next-line
-      phone(team) {
+      phone(team: Team) {
           if (team.players.data.length > 0)
           { 
-              const captain = team.players.data.find(t => t.captain === true);
+              const captain: Player = team.players.data.find(t => t.captain === true);
               return captain.phone;
           }
           else {
@@ -62,12 +61,11 @@ export default {
           }
       }
   },
-  // eslint-disable-next-line
   mounted() {
     const store = useStore();
     store.dispatch("getTeamList");
   },
-};
+});
 </script>
 
 <style>

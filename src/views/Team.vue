@@ -110,18 +110,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import Score from "@/snippets/Score";
+import Score from "@/snippets/Score.vue";
 
-export default {
+export default defineComponent ({
   name: "Team",
   components: {
     score: Score,
   },
   computed: mapState(["venue", "team", "players", "calendar", "loading"]),
   methods: {
-    // eslint-disable-next-line
     getData() {
       if (this.$route.params.id) {
         this.$store.dispatch("getTeam", this.$route.params.id);
@@ -131,11 +131,10 @@ export default {
   watch: {
     "$route.path": "getData",
   },
-  // eslint-disable-next-line
   mounted() {
     this.getData();
   },
-};
+});
 </script>
 
 <style scoped>
