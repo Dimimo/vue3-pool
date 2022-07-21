@@ -70,7 +70,7 @@ import { defineComponent } from "vue";
 import { useStore, mapState } from "vuex";
 
 export default defineComponent ({
-  name: "results",
+  name: "ResultList",
   computed: {
     ...mapState([
       'results',

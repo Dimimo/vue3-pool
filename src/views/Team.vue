@@ -116,7 +116,7 @@ import { mapState } from "vuex";
 import Score from "@/snippets/Score.vue";
 
 export default defineComponent ({
-  name: "Team",
+  name: "TeamView",
   components: {
     score: Score,
   },
