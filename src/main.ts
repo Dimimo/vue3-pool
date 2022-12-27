@@ -8,6 +8,7 @@ import "./assets/tailwind.css";
 import { defineCustomElements as initSkeleton } from "skeleton-webcomponent-loader/loader";
 initSkeleton();
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faAddressCard,
   faAt,
@@ -27,7 +28,6 @@ import {
   faUserSecret,
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
   faAddressCard,
